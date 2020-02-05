@@ -175,35 +175,35 @@ public class ArrayMethods
 		}
 	}
 	
-	/**
+         /**
 	 * Makes all even values come to the front
-	 * Note: Only works with the current test values (got lazy to fix for other values and array sizes)
+	 * haydartuna@hotmail.com
 	 */
 	public void evenFirst()
 	{
-		int left = 0;
-		int right = values.length - 1;
-		
-		while(left < right)
+		for(int i = 0; i < values.length; i ++)
 		{
-			while(values[left] % 2 == 0 && left < right)
+			int lastOddIndex = -1;
+			if ( values[i] % 2 == 0 )
 			{
-				left++;
+				for ( int j = i; j >= 0; j -- )
+				{
+					if ( values[j] % 2 == 1  )
+					{
+						lastOddIndex = j;
+					}
+				}
 			}
-			
-			while(values[right] % 2 == 1 && left < right)
+
+			if ( lastOddIndex > 0 )
 			{
-				right--;
-			}
-			
-			if(left < right)
-			{
-				int temp = values[left];
-				values[left] = values[right];
-				values[right] = temp;
-				
-				left++;
-				right--;
+				for( int k = i; k > lastOddIndex; k -- )
+				{
+					int swap = values[k-1];
+					values[k-1] = values[k];
+					values[k] = swap;
+				}
+
 			}
 		}
 	}
