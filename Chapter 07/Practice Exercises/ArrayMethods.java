@@ -377,4 +377,22 @@ public class ArrayMethods
 		
 		return sum;
 	}
+	
+	/**
+	 * Returns second largest element in an array
+	 */
+	public int getSecondLargest()
+	{
+		int firstLargest = getMax();
+		int secondLargest = values[0];
+		for(int i = 0; i < values.length; i ++)
+		{
+			if( values[i] > secondLargest && values[i] <  firstLargest)
+			{
+				secondLargest = values[i];
+			}
+		}
+		
+		return secondLargest;
+	}
 }
